@@ -1461,6 +1461,26 @@ public class StringAssertions<TAssertions> : ReferenceTypeAssertions<string, TAs
     }
 
     /// <summary>
+    /// Asserts that any character in a string is not in upper casing.
+    /// </summary>
+    /// <param name="because">
+    /// A formatted phrase as is supported by <see cref="string.Format(string,object[])" /> explaining why the assertion
+    /// is needed. If the phrase does not start with the word <i>because</i>, it is prepended automatically.
+    /// </param>
+    /// <param name="becauseArgs">
+    /// Zero or more objects to format using the placeholders in <paramref name="because" />.
+    /// </param>
+    public AndConstraint<TAssertions> NotHaveUpperCasing(string because = "", params object[] becauseArgs)
+    {
+        Execute.Assertion
+            .ForCondition(Subject is null || Subject.All(ch => !char.IsUpper(ch)))
+            .BecauseOf(because, becauseArgs)
+            .FailWith("Did not expect one or more character(s) in {context:string} to be upper cased{reason}.");
+
+        return new AndConstraint<TAssertions>((TAssertions)this);
+    }
+
+    /// <summary>
     /// Asserts that all characters in a string are in lower casing.
     /// </summary>
     /// <remarks>
@@ -1501,6 +1521,26 @@ public class StringAssertions<TAssertions> : ReferenceTypeAssertions<string, TAs
             .ForCondition(Subject is null || Subject.Any(ch => !char.IsLower(ch)))
             .BecauseOf(because, becauseArgs)
             .FailWith("Did not expect any characters in {context:string} to be lower cased{reason}.");
+
+        return new AndConstraint<TAssertions>((TAssertions)this);
+    }
+
+    /// <summary>
+    /// Asserts that any character in a string is not in lower casing.
+    /// </summary>
+    /// <param name="because">
+    /// A formatted phrase as is supported by <see cref="string.Format(string,object[])" /> explaining why the assertion
+    /// is needed. If the phrase does not start with the word <i>because</i>, it is prepended automatically.
+    /// </param>
+    /// <param name="becauseArgs">
+    /// Zero or more objects to format using the placeholders in <paramref name="because" />.
+    /// </param>
+    public AndConstraint<TAssertions> NotHaveLowerCasing(string because = "", params object[] becauseArgs)
+    {
+        Execute.Assertion
+            .ForCondition(Subject is null || Subject.All(ch => !char.IsLower(ch)))
+            .BecauseOf(because, becauseArgs)
+            .FailWith("Did not expect one or more character(s) in {context:string} to be lower cased{reason}.");
 
         return new AndConstraint<TAssertions>((TAssertions)this);
     }
