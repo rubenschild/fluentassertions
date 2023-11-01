@@ -145,7 +145,7 @@ public partial class StringAssertionSpecs
             string actual = "abc";
 
             // Act / Assert
-            actual.Should().NotHaveUpperCasing();
+            actual.Should().NotBeAllUpperCase();
         }
 
         [Fact]
@@ -155,7 +155,7 @@ public partial class StringAssertionSpecs
             string actual = null;
 
             // Act / Assert
-            actual.Should().NotHaveUpperCasing();
+            actual.Should().NotBeAllUpperCase();
         }
 
         [Fact]
@@ -165,7 +165,7 @@ public partial class StringAssertionSpecs
             string actual = "ABC";
 
             // Act
-            Action act = () => actual.Should().NotHaveUpperCasing();
+            Action act = () => actual.Should().NotBeAllUpperCase();
 
             // Assert
             act.Should().Throw<XunitException>();
@@ -178,7 +178,7 @@ public partial class StringAssertionSpecs
             string actual = "Abc";
 
             // Act
-            Action act = () => actual.Should().NotHaveUpperCasing();
+            Action act = () => actual.Should().NotBeAllUpperCase();
 
             // Assert
             act.Should().Throw<XunitException>();
@@ -191,7 +191,7 @@ public partial class StringAssertionSpecs
             string actual = "a1";
 
             // Act / Assert
-            actual.Should().NotHaveUpperCasing();
+            actual.Should().NotBeAllUpperCase();
         }
 
         [Fact]
@@ -201,7 +201,7 @@ public partial class StringAssertionSpecs
             string actual = "A1";
 
             // Act
-            Action act = () => actual.Should().NotHaveUpperCasing();
+            Action act = () => actual.Should().NotBeAllUpperCase();
 
             // Assert
             act.Should().Throw<XunitException>();
@@ -214,7 +214,7 @@ public partial class StringAssertionSpecs
             string actual = "ABC";
 
             // Act
-            Action act = () => actual.Should().NotHaveUpperCasing("because we want to test the failure {0}", "message");
+            Action act = () => actual.Should().NotBeAllUpperCase("because we want to test the failure {0}", "message");
 
             // Assert
             act.Should().Throw<XunitException>().WithMessage(
@@ -228,7 +228,7 @@ public partial class StringAssertionSpecs
             string actual = "Abc";
 
             // Act
-            Action act = () => actual.Should().NotHaveUpperCasing("because we want to test the failure {0}", "message");
+            Action act = () => actual.Should().NotBeAllUpperCase("because we want to test the failure {0}", "message");
 
             // Assert
             act.Should().Throw<XunitException>().WithMessage(
