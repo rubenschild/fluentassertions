@@ -1470,7 +1470,7 @@ public class StringAssertions<TAssertions> : ReferenceTypeAssertions<string, TAs
     /// <param name="becauseArgs">
     /// Zero or more objects to format using the placeholders in <paramref name="because" />.
     /// </param>
-    public AndConstraint<TAssertions> NotBeAllUpperCase(string because = "", params object[] becauseArgs)
+    public AndConstraint<TAssertions> NotHaveAnyUpperCasing(string because = "", params object[] becauseArgs)
     {
         Execute.Assertion
             .ForCondition(Subject is null || Subject.All(ch => !char.IsUpper(ch)))
@@ -1535,7 +1535,7 @@ public class StringAssertions<TAssertions> : ReferenceTypeAssertions<string, TAs
     /// <param name="becauseArgs">
     /// Zero or more objects to format using the placeholders in <paramref name="because" />.
     /// </param>
-    public AndConstraint<TAssertions> NotBeAllLowerCase(string because = "", params object[] becauseArgs)
+    public AndConstraint<TAssertions> NotHaveAnyLowerCasing(string because = "", params object[] becauseArgs)
     {
         Execute.Assertion
             .ForCondition(Subject is null || Subject.All(ch => !char.IsLower(ch)))

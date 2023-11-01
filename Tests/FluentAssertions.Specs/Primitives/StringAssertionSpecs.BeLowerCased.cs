@@ -146,7 +146,7 @@ public partial class StringAssertionSpecs
         }
     }
 
-    public class NotHaveLowerCasing
+    public class NotHaveAnyLowerCasing
     {
         [Fact]
         public void When_a_non_lower_string_is_supposed_to_be_upper_it_should_succeed()
@@ -155,7 +155,7 @@ public partial class StringAssertionSpecs
             string actual = "ABC";
 
             // Act / Assert
-            actual.Should().NotBeAllLowerCase();
+            actual.Should().NotHaveAnyLowerCasing();
         }
 
         [Fact]
@@ -165,7 +165,7 @@ public partial class StringAssertionSpecs
             string actual = null;
 
             // Act / Assert
-            actual.Should().NotBeAllLowerCase();
+            actual.Should().NotHaveAnyLowerCasing();
         }
 
         [Fact]
@@ -175,7 +175,7 @@ public partial class StringAssertionSpecs
             string actual = "abc";
 
             // Act
-            Action act = () => actual.Should().NotBeAllLowerCase();
+            Action act = () => actual.Should().NotHaveAnyLowerCasing();
 
             // Assert
             act.Should().Throw<XunitException>();
@@ -188,7 +188,7 @@ public partial class StringAssertionSpecs
             string actual = "Abc";
 
             // Act
-            Action act = () => actual.Should().NotBeAllLowerCase();
+            Action act = () => actual.Should().NotHaveAnyLowerCasing();
 
             // Assert
             act.Should().Throw<XunitException>();
@@ -201,7 +201,7 @@ public partial class StringAssertionSpecs
             string actual = "A1";
 
             // Act / Assert
-            actual.Should().NotBeAllLowerCase();
+            actual.Should().NotHaveAnyLowerCasing();
         }
 
         [Fact]
@@ -211,7 +211,7 @@ public partial class StringAssertionSpecs
             string actual = "a1";
 
             // Act
-            Action act = () => actual.Should().NotBeAllLowerCase();
+            Action act = () => actual.Should().NotHaveAnyLowerCasing();
 
             // Assert
             act.Should().Throw<XunitException>();
@@ -224,7 +224,7 @@ public partial class StringAssertionSpecs
             string actual = "abc";
 
             // Act
-            Action act = () => actual.Should().NotBeAllLowerCase("because we want to test the failure {0}", "message");
+            Action act = () => actual.Should().NotHaveAnyLowerCasing("because we want to test the failure {0}", "message");
 
             // Assert
             act.Should().Throw<XunitException>().WithMessage(
@@ -238,7 +238,7 @@ public partial class StringAssertionSpecs
             string actual = "Abc";
 
             // Act
-            Action act = () => actual.Should().NotBeAllLowerCase("because we want to test the failure {0}", "message");
+            Action act = () => actual.Should().NotHaveAnyLowerCasing("because we want to test the failure {0}", "message");
 
             // Assert
             act.Should().Throw<XunitException>().WithMessage(
