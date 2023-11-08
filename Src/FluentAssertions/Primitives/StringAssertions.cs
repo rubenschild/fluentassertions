@@ -1498,7 +1498,7 @@ public class StringAssertions<TAssertions> : ReferenceTypeAssertions<string, TAs
     public AndConstraint<TAssertions> BeLowerCased(string because = "", params object[] becauseArgs)
     {
         Execute.Assertion
-            .ForCondition(Subject?.All(char.IsLower) == true)
+            .ForCondition(Subject?.Where(char.IsLetter).All(char.IsLower) == true)
             .BecauseOf(because, becauseArgs)
             .FailWith("Expected all characters in {context:string} to be lower cased{reason}, but found {0}.", Subject);
 

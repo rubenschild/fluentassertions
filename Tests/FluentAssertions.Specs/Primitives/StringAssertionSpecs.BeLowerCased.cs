@@ -45,16 +45,23 @@ public partial class StringAssertionSpecs
         }
 
         [Fact]
-        public void When_a_lower_case_string_with_numbers_is_supposed_to_be_in_lower_case_only_it_should_throw()
+        public void When_a_lower_case_string_with_numbers_is_supposed_to_be_in_lower_case_only_it_should_succeed()
         {
             // Arrange
-            string actual = "a1";
+            string actual = "a123";
 
-            // Act
-            Action act = () => actual.Should().BeLowerCased();
+            // Act / Assert
+            actual.Should().BeLowerCased();
+        }
 
-            // Assert
-            act.Should().Throw<XunitException>();
+        [Fact]
+        public void When_a_lower_case_string_with_special_characters_is_supposed_to_be_in_lower_case_only_it_should_succeed()
+        {
+            // Arrange
+            string actual = "abc!@#$/";
+
+            // Act / Assert
+            actual.Should().BeLowerCased();
         }
 
         [Fact]
